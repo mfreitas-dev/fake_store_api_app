@@ -1,12 +1,14 @@
 import { useMemo } from "react";
 import { useCarrinho } from "../contexts/CarrinhoContext";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 export function Carrinho(){
     const {state, dispatch} = useCarrinho();
     const valortotal = useMemo(() => 
         state.reduce((acumulador, item) => {return ((item.price)*(item.quantidade)) + acumulador}, 0)
     , [state]);
+    const {usuario} = useAuth();
 
     function handleButton(action, item){
         if(action === "remover"){
@@ -41,7 +43,8 @@ export function Carrinho(){
             {(state.length !== 0) &&
             <>
                 <br/><br/><p className="valortotal">Valor total: R${valortotal}</p>
-                <Link to={"/checkout"}><button>FINALIZAR COMPRA</button></Link>
+                <button onClick={() => handleButton("limpar")}>LIMPAR CARRINHO</button>
+                <Link to={(usuario) ? "/checkout" : "/login"}><button>FINALIZAR COMPRA</button></Link>
             </>}
         </div>
     )

@@ -13,7 +13,6 @@ export function Detalhes(){
 
     function handleButton(){
         dispatch({ type: 'ADICIONAR', payload: detalhes });
-        console.log(detalhes);
     };
 
     useEffect(() => {

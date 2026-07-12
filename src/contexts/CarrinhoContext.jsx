@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const CarrinhoContext = createContext(null);
 
@@ -30,7 +30,11 @@ function reducer(state, action){
 };
 
 export function CarrinhoProvider({children}){
-    const [state, dispatch] = useReducer(reducer, []);
+    const [state, dispatch] = useReducer(reducer, [], () => {
+        const salvo = localStorage.getItem("carrinho");
+        return salvo ? JSON.parse(salvo) : [];
+    });
+    useEffect(() => localStorage.setItem("carrinho", JSON.stringify(state)), [state]);
 
     return (
         <CarrinhoContext.Provider value={{state, dispatch}}>

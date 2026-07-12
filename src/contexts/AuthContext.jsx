@@ -8,7 +8,7 @@ const AuthContext = createContext(null);
 export function AuthProvider({children}){
     const [usuario, setUsuario] = useState(() => {
         return localStorage.getItem("usuario") || null
-    })
+    });
 
     async function login(username, password){
         const resposta = await post("/auth/login", {username, password});
