@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useCarrinho } from "../contexts/CarrinhoContext";
 import { useNavigate } from "react-router-dom";
-
+import { formatarMoeda } from "../utils/formatarMoeda";
 
 export function Checkout(){
     const {state, dispatch} = useCarrinho();
@@ -27,10 +27,10 @@ export function Checkout(){
                 <div className="checkoutcard" key={item.id}>
                     <p>Item: {item.title}</p>
                     <p>Quantidade: {item.quantidade}</p>
-                    <p>Subtotal: R${(item.price)*(item.quantidade)}</p>
+                    <p>Subtotal: {formatarMoeda((item.price)*(item.quantidade))}</p>
                 </div>
             ))}
-            <p>Total: R${valortotal}</p>
+            <p>Total: {formatarMoeda(valortotal)}</p>
             <form>
                 <label>Seu Nome:</label>
                 <input type="text" value={nome} onChange={(event) => setNome(event.target.value)} />
@@ -38,7 +38,7 @@ export function Checkout(){
                 <input type="text" value={logradouro} onChange={(event) => setLogradouro(event.target.value)} />
                 <br/><label htmlFor="">CEP:</label>
                 <input type="text" value={cep} onChange={(event) => setCep(event.target.value)} />
-            </form><button onClick={handleButton}>CONFIRMAR PEDIDO</button>
+            </form><button onClick={handleButton} className="btn_primario">CONFIRMAR PEDIDO</button>
         </div>
     )
 }

@@ -7,6 +7,8 @@ import { Carrinho } from './pages/Carrinho';
 import { Checkout } from './pages/Checkout';
 import { useEffect } from 'react';
 import { useAuth } from './contexts/AuthContext';
+import { Home } from './pages/Home';
+import { useTheme } from './contexts/ThemeContext';
 
 function RotaProtegida({ children }) {
     const { usuario } = useAuth();
@@ -22,12 +24,17 @@ function RotaProtegida({ children }) {
     return children;
 }
 
-function App() {
+function App() {    
+  const {temaClaro} = useTheme();
+  useEffect(() => {
+  document.body.className = temaClaro ? "" : "dark";
+}, [temaClaro]);
+
   return (
-    <>
+    <div className={temaClaro ? "app" : "app dark"}>
     <Navbar/>
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
+      <Route path="/" element={<Home/>} />
       <Route path="/produtos" element={<Produtos/>} />
       <Route path="/produtos/:id" element={<Detalhes/>} />
       <Route path="/carrinho" element={<Carrinho/>} />
@@ -40,7 +47,7 @@ function App() {
       />
       <Route path="*" element={<h1>404</h1>} />
     </Routes>
-    </>
+    </div>
   )
 }
 

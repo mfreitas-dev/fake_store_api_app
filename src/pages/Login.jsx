@@ -20,9 +20,11 @@ export function Login(){
 
     return (
         <>
-            <input type="text" name="username" id="userinput" value={username} onChange={(event) => setUsername(event.target.value)}/>
-            <input type="password" name="password" id="passwinput" value={password} onChange={(event) => setPassword(event.target.value)}/>
-            <button type="submit" onClick={() => handleSubmit()}>Fazer Login</button>
+            <div className="login_card">
+                <input type="text" name="username" id="userinput" value={username} onChange={(event) => setUsername(event.target.value)}/>
+                <input type="password" name="password" id="passwinput" value={password} onChange={(event) => setPassword(event.target.value)}/>
+                <button type="submit" onClick={() => handleSubmit()}>Fazer Login</button>
+            </div>
             {(error !== "") && 
             <div >
                 <p>Erro ao tentar fazer login: Código {error}</p>

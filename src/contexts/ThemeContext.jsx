@@ -4,10 +4,10 @@ import { createContext, useContext, useState } from "react";
 const ThemeContext = createContext(null);
 
 export function ThemeProvider({children}){
-    const [TemaClaro, setTemaClaro] = useState(true);
+    const [temaClaro, setTemaClaro] = useState(true);
 
     return (
-        <ThemeContext.Provider value={{TemaClaro, setTemaClaro}}>
+        <ThemeContext.Provider value={{temaClaro, setTemaClaro}}>
             {children}
         </ThemeContext.Provider>
     )
