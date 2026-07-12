@@ -13,6 +13,7 @@ export function Detalhes(){
 
     function handleButton(){
         dispatch({ type: 'ADICIONAR', payload: detalhes });
+        console.log(detalhes);
     };
 
     useEffect(() => {
@@ -48,7 +49,7 @@ export function Detalhes(){
                     <p>Categoria: {detalhes.category}</p>
                     <p>Título: {detalhes.title}</p>
                     <p>Sobre: {detalhes.description}</p>
-                    <p>Valor: {detalhes.price}</p>
+                    <p>Valor: R${detalhes.price}</p>
                     <button onClick={handleButton}>ADICIONAR AO CARRINHO</button>
                 </div>
             )}
