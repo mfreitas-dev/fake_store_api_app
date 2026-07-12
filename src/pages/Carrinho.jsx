@@ -40,7 +40,7 @@ export function Carrinho(){
             }
             {(state.length !== 0) &&
             <>
-                <p className="valortotal">Valor total: R${valortotal}</p>
+                <br/><br/><p className="valortotal">Valor total: R${valortotal}</p>
                 <Link to={"/checkout"}><button>FINALIZAR COMPRA</button></Link>
             </>}
         </div>
