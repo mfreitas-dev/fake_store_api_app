@@ -19,8 +19,9 @@ export function Login(){
     };
 
     return (
-        <>
+        <div className="login_page">
             <div className="login_card">
+                <h2>LOGIN</h2>
                 <input type="text" name="username" id="userinput" value={username} onChange={(event) => setUsername(event.target.value)}/>
                 <input type="password" name="password" id="passwinput" value={password} onChange={(event) => setPassword(event.target.value)}/>
                 <button type="submit" onClick={() => handleSubmit()}>Fazer Login</button>
@@ -30,6 +31,6 @@ export function Login(){
                 <p>Erro ao tentar fazer login: Código {error}</p>
                 <p>Contate o administrador</p>
             </div>}
-        </>
+        </div>
     )
 };

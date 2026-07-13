@@ -1,16 +1,107 @@
-# React + Vite
+# 🛍️ Fake Store — E-commerce React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação de e-commerce completa desenvolvida com React, consumindo a [Fake Store API](https://fakestoreapi.com). Projeto criado como parte de um plano de estudos estruturado para desenvolvimento Full Stack, com foco em boas práticas de arquitetura e experiência do usuário.
 
-Currently, two official plugins are available:
+Link deploy: https://fake-store-api-app-two.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔐 **Autenticação** — Login e logout com JWT, sessão persistida no localStorage
+- 🛒 **Carrinho** — Adicionar, remover e alterar quantidade de itens, com persistência entre sessões
+- 🏪 **Catálogo** — Listagem de produtos com avaliação e preço formatado
+- 🔍 **Detalhe do produto** — Página individual com descrição e opção de adicionar ao carrinho
+- 📦 **Checkout** — Resumo do pedido e formulário de entrega
+- 🌗 **Tema claro/escuro** — Alternância de tema persistida globalmente
+- 🔒 **Rota protegida** — Checkout acessível apenas para usuários autenticados
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tecnologias
+
+- **React 18** — Biblioteca principal
+- **React Router v6** — Navegação e rotas protegidas
+- **Context API** — Gerenciamento de estado global (Auth, Carrinho, Tema)
+- **useReducer** — Lógica do carrinho com múltiplas actions
+- **Fake Store API** — API REST pública para produtos e autenticação
+- **Vite** — Bundler e ambiente de desenvolvimento
+- **CSS puro** com variáveis CSS para theming
+
+---
+
+## 🗂️ Arquitetura
+
+```
+src/
+├── components/
+│   └── layout/       # Navbar
+├── contexts/         # AuthContext, CarrinhoContext, ThemeContext
+├── hooks/            # useProdutos
+├── pages/            # Home, Produtos, Detalhes, Carrinho, Checkout, Login
+├── services/         # api.js — camada de fetch centralizada
+└── utils/            # formatarMoeda
+```
+
+**Padrão de camadas:**
+```
+Componente → Hook → Service → API
+```
+
+Cada camada tem responsabilidade única — o service cuida do fetch, o hook gerencia estado e efeitos, o componente cuida da renderização.
+
+---
+
+## ⚙️ Como rodar localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/mfreitas-dev/fake_store_api_app
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+```
+
+Acesse `http://localhost:5173`
+
+**Credenciais de teste:**
+```
+Usuário: mor_2314
+Senha: 83r5^_
+```
+
+---
+
+## 📸 Screenshots
+
+| Home | Produtos | Carrinho |
+|------|----------|----------|
+| ![Home](![HOME PAGE](image-2.png)) | ![Produtos](![ABA DE PRODUTOS](image-3.png)) | ![Carrinho](![CARRINHO DA LOJA](image-4.png)) |
+
+---
+
+## 🧠 Conceitos praticados
+
+- Arquitetura em camadas (services, hooks, components, pages)
+- Autenticação com JWT e persistência de sessão
+- Gerenciamento de estado complexo com `useReducer` + Context
+- Rotas protegidas com React Router v6
+- AbortController para cancelamento de requisições
+- Inicialização lazy do estado com localStorage
+- Theming com variáveis CSS e Context API
+- Responsividade com CSS Grid e media queries
+
+---
+
+## 🔗 Links
+
+- 🌐 **Deploy:** [https://fake-store-api-app-two.vercel.app/]
+- 👨‍💻 **Portfólio:** [https://mfreitas-dev.github.io/]
+- 💼 **LinkedIn:** [https://linkedin.com/in/matheus-bomfim-santos-freitas]
+
+---
+
+Desenvolvido por **Matheus Bomfim** como parte de uma trilha de estudos estruturada em React para Full Stack.

@@ -16,7 +16,7 @@ export function Navbar(){
             <Link to="/carrinho">Carrinho ({state.length}) </Link>
             {usuario    ? <button onClick={logout} className="botao_logout">Logout</button>
                         : <Link to="/login">Login </Link>}
-            <button className="botao_troca_tema" onClick={() => setTemaClaro(!temaClaro)}>{temaClaro ? "Mudar para tema escuro" : "Mudar para tema claro"}</button>
+            <button className="botao_troca_tema" onClick={() => setTemaClaro(!temaClaro)}>{temaClaro ? "🌖" : "☀️"}</button>
         </nav>
     )
 }

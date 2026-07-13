@@ -39,6 +39,7 @@ export function Carrinho(){
                 </div>
             : state.map((item) => (
                 <div className="cardcarrinho" key={item.id}>
+                    <img src={item.image} alt="" width="30px" />
                     <p>Item: {item.title}</p>
                     <p>Valor unitário: {formatarMoeda(item.price)}</p>
                     <div className="item_quantidade">
@@ -47,7 +48,7 @@ export function Carrinho(){
                     <button onClick={() => handleButton("diminuir_quantidade", item)} className="btn_menos">-</button>
                     </div>
                     <p>Valor total do item: {formatarMoeda((item.price)*(item.quantidade))}</p>
-                    <button onClick={() => handleButton("remover", item)} className="btn_remover">REMOVER</button>
+                    <button onClick={() => handleButton("remover", item)} className="btn_remover">🗑️</button>
                 </div>
                 ))
             }
