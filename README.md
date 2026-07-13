@@ -79,7 +79,7 @@ Senha: 83r5^_
 
 | Home | Produtos | Carrinho |
 |------|----------|----------|
-| ![Home](![HOME PAGE](image-2.png)) | ![Produtos](![ABA DE PRODUTOS](image-3.png)) | ![Carrinho](![CARRINHO DA LOJA](image-4.png)) |
+|![HOME PAGE](image-2.png)|![ABA DE PRODUTOS](image-3.png) |![CARRINHO DA LOJA](image-4.png)|
 
 ---
 
